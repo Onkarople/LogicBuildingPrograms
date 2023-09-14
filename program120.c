@@ -1,0 +1,135 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node
+{
+    int data;          //4
+    struct node *next;    //8
+};
+
+typedef struct node NODE;
+typedef struct node * PNODE;
+typedef struct node ** PPNODE;
+
+
+void InsertFirst(PPNODE Head,int No)
+{
+
+    //allocate memeory for node(dynamically)
+    //inistialise that node
+
+
+
+    //check whwether ll is empty or not
+    //if ll is empty then new node is the first node so upadte its address in first pointer through head
+
+
+    //if ll is not empty then store the address of first node in the next pointer of our new node
+    //update the first pointer through head
+
+   PNODE newn=NULL;
+
+   newn= (PNODE)malloc(sizeof(NODE)); //newn = (struct node*)malloc(12);
+
+   newn->data=No;
+   newn->next=NULL;
+
+   if(*Head==NULL)   //LL is empty
+   {
+     *Head = newn;
+   }
+   else          //LL contains at leat one node
+   {
+      newn->next=*Head;
+      *Head=newn;
+   }
+
+
+
+}
+
+
+void InsertLast(PPNODE Head,int No)
+{
+
+    //allocate memeory for node(dynamically)
+    //inistialise that node
+
+    //check whwether ll is empty or not
+    //if ll is empty then new node is the first node so upadte its address in first pointer through head
+
+    //if ll is not empty then 
+    //travel till last node of ll
+    //store address of new node in the next pointer of last node
+
+   PNODE newn=NULL;
+
+   newn= (PNODE)malloc(sizeof(NODE)); //newn = (struct node*)malloc(12);
+
+   newn->data=No;
+   newn->next=NULL;
+
+   if(*Head==NULL)   //LL is empty
+   {
+     *Head = newn;
+   }
+   else          //LL contains at leat one node
+   {
+      //code
+   }
+
+}
+
+void Display(PNODE head)
+{
+   printf("Elements from linked list are: \n");
+   
+    while(head !=NULL)
+    {
+        printf("|%d|->",head->data);
+        head=head->next;
+    }
+    printf("NULL\n");
+}
+
+int Count(PNODE head)
+{
+   int iCnt=0;
+    while(head !=NULL)
+    {
+        iCnt++;
+        head=head->next;
+    }
+
+  return iCnt;
+}
+
+
+int main()
+{
+  int iRet=0;
+  PNODE First=NULL;
+ 
+
+  InsertFirst(&First,101);  //call by address
+  InsertFirst(&First,51);
+  InsertFirst(&First,21);
+  InsertFirst(&First,11);
+
+
+  Display(First);       //call by value
+
+  iRet =Count(First);
+  printf("Number of nodes are :%d\n",iRet);
+
+  //////////////////////////////
+
+  InsertFirst(&First,1);
+
+  Display(First);       //call by value
+
+  iRet =Count(First);
+  printf("Number of nodes are :%d\n",iRet);
+
+  return 0;
+}

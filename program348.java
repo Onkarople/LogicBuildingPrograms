@@ -1,0 +1,22 @@
+import java.lang.*;
+import java.util.*;
+
+class program348 {
+    public static void main(String arg[]) {
+        Scanner sobj = new Scanner(System.in);
+
+        System.out.println("Enter the number");
+        long iNo = sobj.nextLong();
+
+        long iMask = 0xf000000f;
+        long result = 0;
+
+        result = iNo & iMask;
+
+        if (result == iMask) {
+            System.out.println("First nibble is completely on");
+        } else {
+            System.out.println("First nibble is off");
+        }
+    }
+}
